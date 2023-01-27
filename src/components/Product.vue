@@ -1,13 +1,13 @@
 <template>
   <div class="container-products">
     <div class="products" v-for="(product, index) in products" :key="index">
-      <div class="products-items">
+      <div @click="redirect(product.id)" class="products-items">
         <div class="product-image">
           <img :src="product.image" alt="produits" />
         </div>
         <h3>{{ product.title }}</h3>
         <p class="product-description">{{ product.description }}</p>
-        <span class="product-price">{{ product.price }}€</span>
+        <span class="product-price">{{ Math.round(product.price) }} €</span>
         <button class="product-selected" title="Ajouter au panier">Ajouter</button>
       </div>
     </div>
@@ -16,7 +16,17 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
-const products = ref([]);
+import router from "../router";
+let products = ref([]);
+
+defineProps({
+  props:{
+  img: String, 
+  title: String,
+  description: String,
+  price: Number, 
+}
+})
 
 onMounted(() => {
   fetch("https://fakestoreapi.com/products")
@@ -24,6 +34,12 @@ onMounted(() => {
     .then((data) => (products.value = data));
   console.log(products);
 });
+
+
+
+function redirect(productId){
+router.push(`/Product/${productId}`);
+}
 </script>
 
 <style scoped lang="scss">

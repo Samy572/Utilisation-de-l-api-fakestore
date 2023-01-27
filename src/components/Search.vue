@@ -1,6 +1,6 @@
 <template>
  <div class="containerInput">
-				<input v-model="input" id="search" name="search" type="text" placeholder="Rechercher" />
+				<input @input ="search" v-model="input" id="search" name="search" type="text" placeholder="Rechercher" />
         <label for="search"><img  class="search" src="../assets/images/search.svg" alt="search" ></label>
 			</div>
 
@@ -9,6 +9,9 @@
 <script setup>
 import { ref } from 'vue';
 const input = ref('');
+function search(){
+console.log(products.value);
+}
 </script>
 
 <style scoped lang="scss">

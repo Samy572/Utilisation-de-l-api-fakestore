@@ -1,10 +1,13 @@
-
+@import url('https://fonts.googleapis.com/css2? family= Lato:wght@300;400;700;900 & display=swap');
 *{
-  background: #292524;
   
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 #app {
-  padding: clamp(20px, 5vw, 50px) 20px 10px;
+  background: #292524;
+  overflow: hidden;
   color:#fff;
 }
 

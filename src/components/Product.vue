@@ -28,6 +28,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .container-products {
+  padding: clamp(20px, 5vw, 50px) 20px 10px;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -72,18 +73,24 @@ onMounted(() => {
     text-transform: lowercase;
   }
   .product-price {
+    position: absolute;
+    bottom: 30px;
     font-weight: 700;
     padding: 5px;
   }
 }
 .product-selected{
-  background-color:#16a34a ;
+  background-color:#14532d ;
   position: absolute;
   bottom: 30px;
+  border: none;
   right: 30px;
   color:white;
   padding: 7px;
   cursor: pointer;
   border-radius: 5px;
-}
+  transition: all 0.3s;
+&:hover{
+  background-color: #16a34a;
+}}
 </style>

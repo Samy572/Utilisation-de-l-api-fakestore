@@ -1,17 +1,23 @@
 <template>
-
-<h1>hhh</h1>
-
+	<Navbar />
+	<h2>{{ productSelected.title }}</h2>
 </template>
 
 <script setup>
 import { useRoute } from 'vue-router';
-import Product from '../components/Product.vue';
-const route = useRoute()
+import {  ref } from 'vue';
+import Navbar from '../components/Navbar.vue';
+const route = useRoute();
+const productSelected = ref();
+
+	 fetch(`https://fakestoreapi.com/products/${route.params.id}`)
+		.then((response) => response.json())
+		.then((data) => {
+			productSelected.value = data
+		});
+
+
 </script>
 
-<style scoped lang="scss">
-
-
-
-</style>
+<style scoped lang="scss"></style>
+ 

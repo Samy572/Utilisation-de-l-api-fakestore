@@ -9,7 +9,7 @@
 					<h3>{{ product.title }}</h3>
 					<p class="product-description">{{ product.description }}</p>
 					<span class="product-price">{{ Math.round(product.price) }} €</span>
-					<button  class="product-selected" title="Ajouter au panier">Ajouter</button>
+					<button class="product-selected" title="Ajouter au panier">Voir plus</button>
 				</div>
 			</div>
 		</RouterLink>
@@ -25,7 +25,6 @@ onMounted(() => {
 	fetch('https://fakestoreapi.com/products')
 		.then((response) => response.json())
 		.then((data) => (products.value = data));
-	console.log(products);
 });
 </script>
 
@@ -36,10 +35,7 @@ onMounted(() => {
 	grid-gap: 10px;
 	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 	grid-auto-rows: 450px;
-	
 }
-
-
 
 .products-items {
 	position: relative;
@@ -72,7 +68,7 @@ onMounted(() => {
 	}
 
 	.product-description {
-    margin: 20px 0;
+		margin: 20px 0;
 		padding: 5px;
 		overflow: hidden;
 		white-space: nowrap;
@@ -101,8 +97,8 @@ onMounted(() => {
 		background-color: #0d7634;
 	}
 }
-a{
-  color:white;
-  text-decoration: none;
+a {
+	color: white;
+	text-decoration: none;
 }
 </style>

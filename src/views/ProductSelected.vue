@@ -22,7 +22,6 @@
 </template>
 
 <script setup>
-
 import { useRoute } from 'vue-router';
 import { ref } from 'vue';
 import Navbar from '../components/Navbar.vue';
@@ -43,11 +42,13 @@ fetch(`https://fakestoreapi.com/products/${route.params.id}`)
 	max-height: 100vh;
 	display: flex;
 	justify-content: center;
+	padding: 0 50px;
+	
 }
 .container-product {
 	padding: 5px 10px;
 	margin-top: 150px;
-	width: 60%;
+	width: 750px;
 	height: auto;
 	background-color: #ffff;
 	color: black;
@@ -94,7 +95,7 @@ fetch(`https://fakestoreapi.com/products/${route.params.id}`)
 	}
 	#qtt {
 		padding: 0 5px;
-		width: 30px;
+		width: 50px;
 		cursor: pointer;
 		outline: none;
 		margin-left: 5px;

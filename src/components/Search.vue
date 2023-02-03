@@ -4,7 +4,7 @@
 		<div v-for="(product, index) in searchProduct" :key="index" class="containerSearch">
 			<RouterLink :to="`Product/${product.id}`">
 				<div class="wrapperImg">
-					<img :src="product.image" :alt="product.title"/>
+					<img :src="product.image" :alt="product.title" />
 				</div>
 				<h3>{{ product.title }}</h3>
 			</RouterLink>
@@ -32,9 +32,6 @@ watch(input, (newValue) => {
 		return (searchProduct.value = []);
 	} else return searchProduct.value;
 });
-function redirect(productId) {
-	router.push(`/home`);
-}
 </script>
 
 <style scoped lang="scss">
@@ -48,12 +45,11 @@ function redirect(productId) {
 	input {
 		display: flex;
 		align-self: flex-start;
-		padding: 0px 5px;
 		width: 450px;
 		height: 20px;
 		font-size: 18px;
 		border-radius: 5px;
-		padding: 7px 2px;
+		padding: 15px 2px;
 		outline: white;
 	}
 }
@@ -64,37 +60,41 @@ function redirect(productId) {
 	align-self: flex-start;
 	cursor: pointer;
 	border-bottom: 1px solid #5d5959;
-	background-color: rgb(240, 236, 236);
+	background-color: rgba(240, 236, 236, 0.8);
 	display: flex;
 	align-items: center;
 	height: 100px;
 	font-size: 12px;
 	width: 445px;
 	z-index: 2;
+	transition: all 0.3s ease;
 	&:hover {
-	background: #9c9696;
-}
+		background: #606160;
+	}
 }
 
 h3 {
-	color: black;
 	padding-left: 10px;
 	overflow: hidden;
 	text-transform: ellipsis;
 }
 a {
+	color: black;
 	text-decoration: none;
 	display: flex;
 	align-self: center;
+	align-items: center;
 }
 
 .wrapperImg {
 	padding: 3px;
-	width: 50px;
-	height: 50px;
+	width: 60px;
+	height: 60px;
 	display: flex;
 
 	img {
+		object-fit: cover;
+		border-radius: 50%;
 		width: 100%;
 		height: auto;
 	}

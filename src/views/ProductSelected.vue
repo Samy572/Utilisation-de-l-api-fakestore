@@ -9,10 +9,10 @@
 				<h2 class="product-title">{{ productSelected.title }}</h2>
 				<p class="product-description">{{ productSelected.description }}</p>
 				<div class="container-price">
-					<span class="product-price">{{ Math.round(productSelected.price)*qtt }} €</span>
+					<span class="product-price">{{ Math.round(productSelected.price) * qtt }} €</span>
 					<div class="container-btn">
 						<label for="qtt">Quantité</label>
-						<input v-model="qtt" type="number" id="qtt" />
+						<input v-model="qtt" type="number" id="qtt" min="1" max="20" />
 					</div>
 					<button class="add-product" title="ajouter au panier">Ajouter au panier</button>
 				</div>
@@ -22,6 +22,7 @@
 </template>
 
 <script setup>
+
 import { useRoute } from 'vue-router';
 import { ref } from 'vue';
 import Navbar from '../components/Navbar.vue';
@@ -92,25 +93,26 @@ fetch(`https://fakestoreapi.com/products/${route.params.id}`)
 		}
 	}
 	#qtt {
+		padding: 0 5px;
 		width: 30px;
 		cursor: pointer;
 		outline: none;
 		margin-left: 5px;
 	}
 
-	.add-product{
+	.add-product {
 		background-color: #14532d;
-	
-	border: none;
-	right: 30px;
-	color: white;
-	padding: 7px;
-	cursor: pointer;
-	border-radius: 5px;
-	transition: all 0.3s;
-	&:hover {
-		background-color: #0d7634;
-	}
+
+		border: none;
+		right: 30px;
+		color: white;
+		padding: 7px;
+		cursor: pointer;
+		border-radius: 5px;
+		transition: all 0.3s;
+		&:hover {
+			background-color: #0d7634;
+		}
 	}
 }
 </style>

@@ -16,7 +16,7 @@
 	height: 150px;
 	color: white;
 	background: rgb(0, 0, 0);
-	animation: loading 3s ease;
+	animation: loading 5s ease;
 }
 
 @keyframes loading {

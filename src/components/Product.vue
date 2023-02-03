@@ -57,13 +57,10 @@ onMounted(() => {
 		padding: 5px 0;
 
 		img {
+			z-index: 1;
 			width: 240px;
 			height: 160px;
 			object-fit: cover;
-			transition: transform 0.3s;
-			&:hover {
-				transform: scale(1.1);
-			}
 		}
 	}
 
